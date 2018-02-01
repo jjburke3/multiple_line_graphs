@@ -1,12 +1,18 @@
 # Multiple Line Graphs that interact with each other by Time Period
 
-[Link](https://htmlpreview.github.io/?https://github.com/jjburke3/interactive_map/blob/master/agent_map.html)
+[Link](https://htmlpreview.github.io/?https://github.com/jjburke3/multiple_line_graphs/blob/master/inforce.html)
 
-This dashboard was meant to display key metrics on a daily basis.  It originally pulled directly from a SQL database using a PHP connection (I've left the PHP files included with credentials scrubbed). 
+This interactive was created to show how percentage of inforce insurance policies by factor changed over time.  There are drop-downs in the righthand corner to change which information is being displayed
 
-![alt text](./map.png)
+![alt text](./line-graphs.png)
 
+If you hover over a graph, it will display information on all programs for that time period, not just for the graph that you hover on
 
+![alt text](./hover.png)
+
+There is also a zoom function, which is activated by clicking and dragging on a chart, and removed with a double-click on the chart
+
+![alt text](./zoom.png)
 
 
 ## Built With
