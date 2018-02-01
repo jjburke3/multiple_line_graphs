@@ -4,7 +4,7 @@
 
 This interactive was created to show how percentage of inforce insurance policies by factor changed over time.  There are drop-downs in the righthand corner to change which information is being displayed
 
-![alt text](./line-graphs.png)
+![alt text](./line_graphs.png)
 
 If you hover over a graph, it will display information on all programs for that time period, not just for the graph that you hover on
 
