@@ -28,14 +28,14 @@
 					</select>
 					<select id="select-factor">
 						<option value="LIEN">Lien Holder</option>
-						<option value="EFT/FP">EFT & Full Pay</option>
-						<option value="COV MIX">Coverage Mixes</option>
+						<!--<option value="EFT/FP">EFT & Full Pay</option>
+						<option value="COV MIX">Coverage Mixes</option>-->
 						<option value="SEX-MARITAL">Sex-Marital</option>
 						<option value="NEW OR RENEWAL">New Business & Renewal</option>
-						<option value="HOME OWNER">Homeowners</option>
+						<!--<option value="HOME OWNER">Homeowners</option>
 						<option value="MULTICAR">Multi Car</option>
-						<option value="DVR POINTS">Driver Points</option>
-						<option value="AGE">Insured Age</option>
+						<<option value="DVR POINTS">Driver Points</option>
+						option value="AGE">Insured Age</option>-->
 					</select>
 				</div>
 			</div>
@@ -107,10 +107,10 @@
 							.style("border","solid 1px black");
 						switch(state) {
 							case 'FL':
-								charts = ["TOTAL","WIN","SEL","OPT","ICN"];
+								charts = ["TOTAL","PROGRAM_1","PROGRAM_2"];
 								break;
 							case 'TX':
-								charts = ["TOTAL","ES","EL","AS","AL","EV"];
+								charts = ["TOTAL","PROGRAM_1","PROGRAM_2"];
 								break;
 						}
 						d3.selectAll(".temp").classed("remove",true);
@@ -122,10 +122,12 @@
 							
 							
 							
-						
-						var d3json = d3.json("php/inforce.php?factor=" + factor + "&state=" + state, function(error, data) {
-						
-							
+						// removed this line, and replaced with csv function for sample data
+						//var d3json = d3.json("php/inforce.php?factor=" + factor + "&state=" + state, function(error, data) {
+						var csvData = d3.csv("data/data.csv", function(error, data) {
+							console.log(data);
+							data = data.filter(function(d) {
+								return d.STATE == state && d.GROUPING == factor;});
 							var legendMap = d3.nest()
 								.key(function(d) {return d.GROUPED_BY;})
 								.entries(data);
@@ -201,7 +203,7 @@
 									.attr("height",chartSize.height);
 									
 								svg.append("text")
-									.text(charts[i])
+									.text(charts[i].split("_").join(" "))
 									.attr("x",chartSize.width/2)
 									.attr("y",-margins.top/2)
 									.style("text-anchor","middle");
